@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+
+    <bean id="Sample"
+          name="Sample"
+          class="com.jspiders.springs.demo.Sample"/>
+
+<!-- this bean is written to create object of conatctinfo class -->
+    <bean id="contact"
+          name="contact"
+          class="com.jspiders.springs.demo.ContactInfo"/>
+
+
+<!--this bean is written to create object of address class-->
+    <bean id="address"
+          name="address"
+          class="com.jspiders.springs.demo.Address"/>
+
+<!-- this bean is written to create the object of employee class   -->
+    <bean id="employee"
+          name="employee"
+          class="com.jspiders.springs.demo.Employee">
+
+<!--    this line of code is written to link the contact object with the employee object using constructor injection    -->
+<!--    for constructor injectin , parameterised constructor is mandatory    -->
+        <constructor-arg ref="contact" />
+        <constructor-arg ref="address"/>
+
+    </bean>
+
+
+</beans>
